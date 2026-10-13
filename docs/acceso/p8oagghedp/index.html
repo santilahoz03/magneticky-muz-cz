@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Magnetický Muž — Tvůj přístup</title>
+<style>
+  :root {
+    --bg: #FBF9F5;
+    --ink: #17130E;
+    --acc: #A63A2A;
+    --success: #1A8A2E;
+    --muted: #6B5E54;
+    --line: #E2D9CE;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: system-ui,-apple-system,"Segoe UI",sans-serif; }
+  body { padding: 0 0 64px; }
+
+  /* ── Header ── */
+  .header {
+    background: var(--ink);
+    padding: 18px 24px;
+    text-align: center;
+  }
+  .header .brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--acc);
+  }
+
+  /* ── Congrats banner ── */
+  .congrats {
+    background: #1A8A2E12;
+    border-bottom: 1px solid #1A8A2E30;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .congrats p {
+    font-size: 14px;
+    color: var(--success);
+    font-weight: 600;
+  }
+
+  /* ── Main wrap ── */
+  .wrap { max-width: 680px; margin: 0 auto; padding: 40px 20px 0; }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .intro {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ── Item card ── */
+  .item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 22px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .item .item-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .item .item-body { flex: 1; }
+
+  .item .item-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--acc);
+    margin-bottom: 4px;
+  }
+
+  .item h2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .item .item-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--acc);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 11px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .btn:hover { opacity: 0.88; }
+
+  .btn.secondary {
+    background: transparent;
+    border: 1.5px solid var(--acc);
+    color: var(--acc);
+  }
+
+  /* ── Bonus tag ── */
+  .bonus-pill {
+    display: inline-block;
+    background: #A63A2A14;
+    border: 1px solid #A63A2A35;
+    color: var(--acc);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 6px;
+  }
+
+  /* ── Garance note ── */
+  .garance {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 32px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  @media (max-width: 520px) {
+    h1 { font-size: 24px; }
+    .item { flex-direction: column; gap: 10px; }
+    .item .item-icon { font-size: 28px; }
+  }
+
+  @media (max-width: 380px) {
+    h1 { font-size: 21px; }
+    .wrap { padding: 28px 14px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">Magnetický Muž™</div>
+</div>
+
+<div class="congrats">
+  <p>✓ Platba přijata · Přístup aktivní</p>
+</div>
+
+<div class="wrap">
+  <h1>Tvůj přístup je připravený.</h1>
+  <p class="intro">Níže najdeš vše, co je součástí nabídky. Klikni na tlačítko u každé položky a stáhni ji přímo do zařízení.</p>
+
+  <div class="section-label">Tvůj balíček</div>
+
+  <!-- ── Hlavní produkt ── -->
+  <div class="item">
+    <div class="item-icon">📖</div>
+    <div class="item-body">
+      <div class="item-tag">E-kniha · Hlavní materiál</div>
+      <h2>Magnetický Muž: 7 Přepínačů™</h2>
+      <p class="item-desc">Šest částí. Sedm chování, která o tobě rozhodují v prvních 90 sekundách — a jak každý z nich zapnout. Eliminační mechanismus, vizuální přítomnost, napětí v řeči, dopaminový rytmus, zůstat v její hlavě, odchod ze zóny kamaráda a priorita vlastního života.</p>
+      <a class="btn" href="../../magneticky-muz/x7k2mnh4qp/">Získat e-knihu →</a>
+    </div>
+  </div>
+
+  <!-- ── Bonus ── -->
+  <div class="item">
+    <div class="item-icon">🎁</div>
+    <div class="item-body">
+      <div class="bonus-pill">Bonus zdarma · Hodnota 299 Kč</div>
+      <div class="item-tag">Bonusová kapitola</div>
+      <h2>Prvních 90 Sekund: Šest situací, větu po větě</h2>
+      <p class="item-desc">Žena, kterou neznáš. Kolegyně z práce. Skupina přátel. Na rande. Přes zprávy. Restart po pauze. Každá situace rozepsaná krok za krokem — co říct, kdy říct a proč to funguje. Přečti dvě minuty před situací a vstup tam připravený.</p>
+      <a class="btn" href="../../prvnich-90-sekund/r9fj5vbe1w/">Získat bonusovou kapitolu →</a>
+    </div>
+  </div>
+
+  <!-- ── Garance ── -->
+  <div class="garance">
+    <strong>Záruka 90 dní.</strong> Pokud ti materiál nepomohl, pošli jednu větu a dostaneš zpět celých 299 Kč. Bez otázek, bez vysvětlování.
+  </div>
+
+</div>
+</body>
+</html>

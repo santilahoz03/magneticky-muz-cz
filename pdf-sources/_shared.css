@@ -1,0 +1,431 @@
+/* ── Magnetický Muž · Shared PDF Styles ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #FBF9F5;
+  --ink: #17130E;
+  --accent: #A63A2A;
+  --success: #37CA37;
+  --bg-alt: #F2EDE5;
+  --muted: #6B5E54;
+  --line: #E2D9CE;
+  --page: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── PDF page wrapper ── */
+.page {
+  background: var(--page);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  padding: 22mm 20mm 20mm;
+  position: relative;
+}
+
+@media print {
+  body { background: white; }
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 18mm 17mm 15mm;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: avoid; }
+}
+
+/* ── Cover ── */
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 297mm;
+  background: var(--ink);
+  color: #FBF9F5;
+}
+
+.cover .brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+
+.cover h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FBF9F5;
+  margin-bottom: 12px;
+}
+
+.cover .subtitle {
+  font-size: 18px;
+  color: #BEB3A8;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.cover .switches-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.cover .switch-pill {
+  background: rgba(166,58,42,0.25);
+  border: 1px solid var(--accent);
+  color: #E8C4BB;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+}
+
+.cover .cover-footer {
+  font-size: 12px;
+  color: #6B5E54;
+  border-top: 1px solid #2E2924;
+  padding-top: 16px;
+}
+
+/* ── Chapter opener ── */
+.chapter-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--line);
+}
+
+.chapter-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.chapter-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.chapter-header .chapter-lead {
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ── Body text ── */
+p {
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+
+strong { font-weight: 600; }
+
+/* ── Section heading ── */
+h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 28px 0 12px;
+  color: var(--ink);
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 24px 0 8px;
+}
+
+/* ── Pull quote / insight box ── */
+.insight {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.insight p {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── Přepínač (switch) block ── */
+.switch-block {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: 0 0 8px 8px;
+  padding: 20px 22px;
+  margin: 28px 0;
+}
+
+.switch-block .switch-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.switch-block .switch-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.switch-block p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.switch-block p:last-child { margin-bottom: 0; }
+
+/* ── Bullet list ── */
+ul.check {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+ul.check li {
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+ul.check li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+ul.dash {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+ul.dash li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+ul.dash li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+/* ── Example dialogue box ── */
+.dialog-box {
+  background: #17130E08;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 20px 0;
+}
+
+.dialog-box .dialog-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.dialog-line {
+  margin-bottom: 8px;
+}
+
+.dialog-line .who {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.dialog-line .what {
+  font-size: 14px;
+  color: var(--ink);
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+}
+
+/* ── Warning / "nedělej to" box ── */
+.warning-box {
+  background: #A63A2A0D;
+  border: 1px solid #A63A2A40;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 20px 0;
+}
+
+.warning-box .warning-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.warning-box p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* ── Section divider ── */
+.divider {
+  text-align: center;
+  margin: 32px 0;
+  color: var(--line);
+  font-size: 20px;
+  letter-spacing: 0.3em;
+}
+
+/* ── Page footer ── */
+.page-footer {
+  position: absolute;
+  bottom: 14mm;
+  left: 20mm;
+  right: 20mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 6px;
+}
+
+/* ── Table of contents ── */
+.toc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--line);
+  font-size: 14px;
+}
+
+.toc-item .toc-title { color: var(--ink); }
+.toc-item .toc-num { color: var(--muted); font-size: 12px; }
+.toc-section {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 20px 0 8px;
+}
+
+/* ── Situace block (bonus) ── */
+.situace-block {
+  margin: 36px 0;
+}
+
+.situace-block .situace-num {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.situace-block h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.situace-block .context {
+  background: var(--bg-alt);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--line);
+}
+
+.step {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+
+.step .step-n {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.step .step-body { flex: 1; }
+
+.step .step-say {
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.step .step-why {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
