@@ -404,11 +404,21 @@ ul.dash li::before {
 
 /* ── Section divider ── */
 .divider {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin: 32px 0;
-  color: var(--line);
-  font-size: 20px;
-  letter-spacing: 0.3em;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
 }
 
 /* ── Page footer ── */
@@ -543,12 +553,17 @@ ul.dash li::before {
   justify-content: flex-end;
 }
 .chapter-splash-overlay .chapter-num {
+  display: block;
   color: var(--accent);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 12px;
+}
+
+.chapter-splash-overlay .chapter-num::before {
+  display: none;
 }
 .chapter-splash-title {
   font-family: 'Playfair Display', Georgia, serif;
@@ -643,4 +658,163 @@ ul.dash li::before {
   font-size: 12px;
   color: var(--muted);
   line-height: 1.55;
+}
+
+/* ══ BRAND LAYER — elevates perceived value ══ */
+
+/* ── Winner / "přepínač zapnutý" dialog line ── */
+.dialog-line.winner {
+  background: #EBF5EE;
+  border-bottom-color: #BEE0CA;
+}
+
+.dialog-line.winner .who {
+  color: #2A7A50;
+  font-weight: 800;
+}
+
+.dialog-line.winner .what {
+  color: #1A4A31;
+}
+
+/* ── TOC grid ── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0 18px;
+}
+
+.toc-card {
+  background: var(--bg-alt);
+  border-radius: 8px;
+  padding: 16px 18px;
+  border-top: 3px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.toc-card::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.05;
+}
+
+.toc-card .toc-num-big {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.18;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.toc-card .toc-section-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.toc-card .toc-sub {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ── CTA box (dark brand, end of documents) ── */
+.cta-box {
+  text-align: center;
+  margin-top: 48px;
+  padding: 36px 28px;
+  background: var(--ink);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+
+.cta-box .cta-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.cta-box .cta-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #F5F0E8;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.cta-box .cta-body {
+  font-size: 14px;
+  color: rgba(245,240,232,0.6);
+  margin: 0;
+}
+
+/* ── Step element redesign (bonus) ── */
+.step .step-say {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.step .step-why {
+  font-size: 13.5px;
+  color: var(--ink);
+  font-style: italic;
+  line-height: 1.6;
+  background: var(--bg-alt);
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 3px solid var(--line);
+  margin-top: 6px;
+  display: block;
+}
+
+/* ── Situace context (scene setting) ── */
+.situace-block .context {
+  position: relative;
+  background: #17130E08;
+  border-radius: 0 6px 6px 0;
+  padding: 20px 16px 14px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--ink);
+}
+
+.situace-block .context::before {
+  content: 'SCÉNA';
+  position: absolute;
+  top: 6px;
+  left: 16px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  opacity: 0.7;
 }
