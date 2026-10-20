@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Přejít od Zájmu k Rande</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+.cover {
+  background: linear-gradient(145deg, #1A130E 0%, #2E1A10 45%, #17130E 100%);
+}
+.cover-accent-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--accent);
+  z-index: 3;
+}
+.cover-circles {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.cover-circles::before {
+  content: '';
+  position: absolute;
+  right: -40mm;
+  top: 20mm;
+  width: 120mm;
+  height: 120mm;
+  border-radius: 50%;
+  border: 1px solid rgba(166,58,42,0.15);
+}
+.cover-circles::after {
+  content: '';
+  position: absolute;
+  right: -20mm;
+  top: 5mm;
+  width: 80mm;
+  height: 80mm;
+  border-radius: 50%;
+  border: 1px solid rgba(166,58,42,0.08);
+}
+.module-header {
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--line);
+}
+.module-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.module-num::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+.module-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.module-header .module-lead {
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+}
+.message-bubble {
+  margin: 8px 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  max-width: 85%;
+  font-size: 13.5px;
+  line-height: 1.55;
+  position: relative;
+}
+.message-bubble.you {
+  background: var(--accent);
+  color: white;
+  border-bottom-right-radius: 4px;
+  margin-left: auto;
+  margin-right: 0;
+}
+.message-bubble.her {
+  background: var(--bg-alt);
+  color: var(--ink);
+  border-bottom-left-radius: 4px;
+  margin-left: 0;
+  border: 1px solid var(--line);
+}
+.message-bubble .who-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  opacity: 0.75;
+}
+.message-bubble.you .who-tag { color: rgba(255,255,255,0.8); }
+.message-bubble.her .who-tag { color: var(--muted); }
+.message-thread {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(23,19,14,0.06);
+}
+.message-thread .thread-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.frame-box {
+  background: var(--bg-alt);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin: 20px 0;
+  border-top: 3px solid var(--accent);
+}
+.frame-box .frame-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.frame-box h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.frame-box p {
+  font-size: 13.5px;
+  margin: 0;
+}
+.numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  counter-reset: nlist;
+}
+.numbered-list li {
+  counter-increment: nlist;
+  padding: 10px 0 10px 36px;
+  position: relative;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.numbered-list li:last-child { border-bottom: none; }
+.numbered-list li::before {
+  content: counter(nlist);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="page cover" style="padding: 22mm 20mm 28mm; justify-content: space-between;">
+  <div class="cover-accent-bar"></div>
+  <div class="cover-circles"></div>
+  <div style="position: relative; z-index: 2;">
+    <div class="brand" style="color: var(--accent); font-size: 10px; letter-spacing: 0.2em;">MAGNETICKÝ MUŽ · AKČNÍ PRŮVODCE</div>
+  </div>
+  <div style="position: relative; z-index: 2;">
+    <div style="background: var(--accent); color: white; display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 14px; border-radius: 99px; margin-bottom: 22px;">6 Modulů</div>
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; line-height: 1.05; color: #FBF9F5; margin-bottom: 14px;">Přejít od Zájmu<br>k Rande</h1>
+    <p class="subtitle">Zprávy, navrhování a první rande —<br>krok za krokem bez zbytečného čekání.</p>
+    <div class="switches-row" style="margin-top: 32px;">
+      <span class="switch-pill">Modul 1 · První zpráva</span>
+      <span class="switch-pill">Modul 2 · Rytmus konverzace</span>
+      <span class="switch-pill">Modul 3 · Navrhnutí rande</span>
+      <span class="switch-pill">Modul 4 · První rande</span>
+      <span class="switch-pill">Modul 5 · Napětí a přitažlivost</span>
+      <span class="switch-pill">Modul 6 · Po prvním rande</span>
+    </div>
+    <div class="cover-footer" style="margin-top: 40px;">Akční průvodce k e-knize Magnetický Muž · Pouze pro vlastní použití</div>
+  </div>
+</div>
+
+<!-- ══ OBSAH ══ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Obsah</div>
+    <h2>Od první zprávy po druhé rande — bez tápání, bez čekání na "správný okamžik".</h2>
+    <p class="chapter-lead">Každý krok má svou konkrétní podobu. Tento průvodce ti ji dá.</p>
+  </div>
+
+  <div class="toc-grid">
+    <div class="toc-card">
+      <div class="toc-num-big">01</div>
+      <div class="toc-section-name">První zpráva po setkání</div>
+      <div class="toc-sub">Kdy, jak a co napsat — aby zájem nezhasl po odchodu.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">02</div>
+      <div class="toc-section-name">Rytmus konverzace</div>
+      <div class="toc-sub">Jak udržet zájem bez přehlcení nebo chladu.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">03</div>
+      <div class="toc-section-name">Navrhnutí rande</div>
+      <div class="toc-sub">Konkrétní formule, která funguje. Bez otočení otázky zpět.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">04</div>
+      <div class="toc-section-name">První rande — plán</div>
+      <div class="toc-sub">Kam jít, jak se připravit a jak řídit dynamiku.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">05</div>
+      <div class="toc-section-name">Napětí a přitažlivost</div>
+      <div class="toc-sub">Jak vytvářet přirozené napětí — bez her a bez nátlaku.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">06</div>
+      <div class="toc-section-name">Po prvním rande</div>
+      <div class="toc-sub">Co napsat druhý den — a jak zajistit druhé setkání.</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande · Průvodce</span>
+    <span>Obsah</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 1 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 01</div>
+    <h2>První zpráva po setkání</h2>
+    <p class="module-lead">Kdy napsat, co napsat a jak nezahájit konverzaci klasickou chybou "ahoj".</p>
+  </div>
+
+  <p>Získal jsi číslo. Teď je nejdůležitější první zpráva — ta nastaví tón a připomene zájem, než zmizí v každodenním ruchu. Čekání "abys nevypadal jako zoufalý" nemá smysl: zájem se neprojevuje rychlostí, ale obsahem.</p>
+
+  <div class="insight">
+    <p>„Špatná první zpráva: 'Ahoj, jsem to já :)'. Dobrá první zpráva odkazuje na konkrétní moment setkání — a tím říká, že sis ho zapamatoval."</p>
+  </div>
+
+  <h3>Kdy napsat</h3>
+  <p>Ideálně ve stejný den nebo do 24 hodin od setkání. Dostatečně brzy, aby si vzpomněla; dostatečně pozdě, aby zpráva nepřišla dřív než ty jdeš domů. Večer téhož dne je nejlepší timing pro první zprávu.</p>
+
+  <h3>Struktura první zprávy</h3>
+  <p>Tři složky: <strong>kotvení</strong> (odkaz na setkání), <strong>náboj</strong> (vtip, pozorování nebo shrnutí), <strong>přechod</strong> (otevřená otázka nebo nenucená nabídka setkání).</p>
+
+  <div class="message-thread">
+    <div class="thread-label">Příklad první zprávy · Koktejlbár</div>
+    <div class="message-bubble you">
+      <div class="who-tag">Ty</div>
+      Tak jo — ten tequila shot přežil bez úhony. Narozdíl od tvé teorie, že citrusy pomáhají. Jak jsi ten večer dopadla?
+    </div>
+    <div class="message-bubble her">
+      <div class="who-tag">Ona</div>
+      Haha přesně, teorie vyvrácena. Dopadla jsem dobře :) A ty?
+    </div>
+  </div>
+
+  <div class="frame-box">
+    <div class="frame-label">Formule</div>
+    <h4>Konkrétní vzpomínka + náboj + otázka</h4>
+    <p>Kotvení: "[Konkrétní věc z rozhovoru nebo situace]." Náboj: Krátký komentář, vtip nebo shrnutí. Přechod: Jedna otevřená otázka nebo lehký přechod. Nepotřebuješ víc než tři věty.</p>
+  </div>
+
+  <h3>Co v první zprávě nedělat</h3>
+  <ul class="check" style="--success: #A63A2A;">
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Samotné "Ahoj" bez obsahu — nulový kontext</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Otázka "Na co myslíš?" — příliš intimní bez základu</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Příliš dlouhá první zpráva — přehlcení a tlak</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Kompliment na fyzický vzhled jako otevření</li>
+  </ul>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande</span>
+    <span>Modul 01 · První zpráva</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 2 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 02</div>
+    <h2>Rytmus konverzace přes zprávy</h2>
+    <p class="module-lead">Jak udržet zájem bez přehlcení — a proč "zrcadlení" funguje lépe než pravidlo "nedávej se příliš".</p>
+  </div>
+
+  <p>Přes zprávy se zájem nebuduje intenzitou — buduje se rytmem. Příliš rychlé odpovědi signalizují, že nemáš nic jiného. Příliš pomalé signalizují lhostejnost. Rytmus, který funguje, je přirozený — ne strategicky vypočítaný.</p>
+
+  <div class="insight">
+    <p>„Nejde o to nečekat. Jde o to mít opravdový život, který konverzaci přirozeně přerušuje a obnovuje — ne simulovat takový život strategickými prodlevami."</p>
+  </div>
+
+  <h3>Obecné pravidlo rytmu</h3>
+  <p>Zrcadli přibližně její tempo, ale s mírnou asymetrií v tvůj prospěch: pokud ona odpoví za hodinu, odpovídej za 30–90 minut. Pokud je aktivní, buď aktivní. Pokud je tišší, buď tišší. Konverzace má dýchat — ne běžet nepřetržitě.</p>
+
+  <div class="frame-box">
+    <div class="frame-label">Pravidlo délky</div>
+    <h4>Zhruba stejně dlouhé zprávy</h4>
+    <p>Pokud ona píše 2 věty, piš 2–3. Pokud píše odstavec, piš odstavec. Nesrovnané délky signalizují nesoulad zájmu — buď nezainteresovanost (kratší), nebo přehlcení (delší). Výjimka: vtipné krátké reakce jsou vždy v pořádku.</p>
+  </div>
+
+  <h3>Jak přirozeně ukončit konverzaci</h3>
+  <p>Konverzace, která nekončí, se vydoluje. Nech konverzaci skončit přirozeně — nebo ji vědomě ukonči: "Jdu, bavilo mě to. Brzy." Tím naznačíš, že máš život a zájem — zároveň. Neprodlužuj konverzaci za každou cenu, aby ses vyhnul tichu.</p>
+
+  <div class="message-thread">
+    <div class="thread-label">Příklad přirozeného ukončení</div>
+    <div class="message-bubble her">
+      <div class="who-tag">Ona</div>
+      Haha přesně tak, nemám jiné vysvětlení :D
+    </div>
+    <div class="message-bubble you">
+      <div class="who-tag">Ty</div>
+      To přijmu. Jdu spát — brzy se ozvu.
+    </div>
+  </div>
+
+  <h3>Obsah zpráv — co sdílet</h3>
+  <p>Spontánní reakce na něco, co zažíváš (bez nucení). Krátký vtip nebo pozorování. Pokračování konverzace z posledního setkání. Vyhni se: každodenním "dobrý ráno" (tlak na vzájemnost), dlouhým emočním zpovědem v rané fázi, a opakovaným zprávám bez odpovědi.</p>
+
+  <div class="warning-box">
+    <div class="warning-label">Dvojí zpráva bez odpovědi</div>
+    <p>Pokud jsi napsal zprávu a ona neodpověděla — napiš jednu druhou zprávu s jiným obsahem (ne "proč neodpovídáš"). Pokud neodpovídá ani pak, přestaň. Zájem se nezvyšuje dalšími zprávami bez odpovědi.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande</span>
+    <span>Modul 02 · Rytmus konverzace</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 3 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 03</div>
+    <h2>Navrhnutí rande</h2>
+    <p class="module-lead">Konkrétní formule pro navrhnutí setkání — tak, aby odpověď nemohla být jen "nevím, uvidíme".</p>
+  </div>
+
+  <p>Nejčastější chyba: "Mohli bychom se někdy setkat?" Slova "někdy" a "mohli bychom" přenáší rozhodnutí na ni a otvírají prostor pro vyhýbavou odpověď. Sebevědomý návrh má konkrétní obsah — čas, místo, a rám.</p>
+
+  <div class="insight">
+    <p>„Navrhni setkání jako plán, ne jako žádost o povolení. Otevřená otázka přenáší rozhodnutí na ni. Konkrétní návrh přenáší jen souhlas nebo jiný čas."</p>
+  </div>
+
+  <h3>Formule konkrétního návrhu</h3>
+  <p><strong>[Den nebo čas]</strong> + <strong>[Konkrétní aktivita nebo místo]</strong> + <strong>[Jednoduchá uzavřená otázka]</strong></p>
+
+  <div class="message-thread">
+    <div class="thread-label">Návrh rande — příklady</div>
+    <div class="message-bubble you">
+      <div class="who-tag">Příklad 1 · Kavárna</div>
+      Ve čtvrtek odpoledne jsem v centru — dej mi vědět, jestli máš čas na kávu.
+    </div>
+    <div class="message-bubble you" style="margin-top: 8px;">
+      <div class="who-tag">Příklad 2 · Konkrétnější</div>
+      V sobotu jdu na vinný trh na náměstí — přijdeš?
+    </div>
+    <div class="message-bubble you" style="margin-top: 8px;">
+      <div class="who-tag">Příklad 3 · Přímý</div>
+      Chci se s tebou setkat. Kdy máš v příštím týdnu čas?
+    </div>
+  </div>
+
+  <h3>Reakce na odmítnutí nebo vyhýbání</h3>
+  <p>Pokud říká "nevím", "uvidíme" nebo "jsem teď zaneprázdněná" — jednou zkus konkrétnější termín: "Co takhle příští týden ve středu?" Pokud ani pak není konkrétní — je to odpověď sama o sobě. Přijmi ji klidně a bez nátlaku.</p>
+
+  <div class="frame-box">
+    <div class="frame-label">Technika · Otevřená alternativa</div>
+    <h4>Dva termíny místo jednoho</h4>
+    <p>"Ve středu nebo ve čtvrtek večer — co ti sedí víc?" dává jí prostor pro rozhodnutí, ale stále v tvých podmínkách. Nevytváří situaci "kdy chceš" (neomezená odpovědnost na ní), ale "ve středu nebo čtvrtek" (konkrétní volba).</p>
+  </div>
+
+  <h3>Kam navrhovat první rande</h3>
+  <p>Kavárna nebo krátká aktivita (30–60 minut) je lepší volba než večeře nebo film pro první setkání. Kratší formát snižuje tlak na obou stranách — a je snazší prodloužit dobré setkání než zkrátit špatné.</p>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande</span>
+    <span>Modul 03 · Navrhnutí rande</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 4 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 04</div>
+    <h2>První rande — plán a příprava</h2>
+    <p class="module-lead">Kam jít, jak se připravit a jak řídit dynamiku tak, aby první rande nebyla výslech.</p>
+  </div>
+
+  <p>První rande má jeden cíl: aby chtěla druhé. Ne zapůsobit. Ne ukázat všechno, čím jsi. Ne zjistit, jestli je "ta pravá". Jeden cíl: vytvoř zážitek, ke kterému se chce vrátit.</p>
+
+  <div class="insight">
+    <p>„Rande není pohovor. Není to prezentace. Je to zkouška, jak se spolu cítíte — a záleží na prostředí, tempu a přítomnosti, ne na obsahu životopisu."</p>
+  </div>
+
+  <h3>Místo: pohyblivé vs. statické</h3>
+  <p><strong>Statické</strong> (kavárna, restaurace): dobré, ale omezuje přirozenost pohybu a ticho je výraznější. <strong>Pohyblivé</strong> (procházka, trh, výstava): přirozené pauzy, fyzický pohyb uvolňuje nervozitu, snazší konverzace bez tlaku přímého kontaktu pohledem. Pro první rande je pohyblivý formát zpravidla přirozenější — pokud je počasí a situace v pořádku.</p>
+
+  <h3>Příprava trvá 10 minut, ne hodiny</h3>
+  <p>Víš, jak se tam dostaneš. Víš, kde to je (nezkoumáš telefon na místě). Máš volný čas, ne přesný odchod za hodinu. Jsi klidný — ne přenadšený. To je vše, co potřebuješ připravit.</p>
+
+  <div class="numbered-list">
+    <li>Potvrď den a čas zprávou den předem — krátce a přirozeně</li>
+    <li>Přijď o 2–3 minuty dřív — nestresuje tě to, a ona nemusí čekat</li>
+    <li>Nech telefon v kapse nebo tašce, pokud to není nutné</li>
+    <li>Nezačínej otázkami "Čím se živíš?" — začni tím, co se děje teď</li>
+    <li>Navrhni posunutí místa po první kavárně — "Projdeme se?" je přirozený přechod</li>
+  </div>
+
+  <h3>Dynamika konverzace na rande</h3>
+  <p>Řiď tempo. Nenechávej ticho vyplnit panikou. Spontánní komentáře na prostředí kolem vás ("Podívej, co tamten dělá") jsou lepší otevírače než přípravné otázky. Rande je o přítomnosti, ne o zjišťování dat o druhém člověku.</p>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande</span>
+    <span>Modul 04 · První rande</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 5 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 05</div>
+    <h2>Napětí a přitažlivost při setkání</h2>
+    <p class="module-lead">Jak vytvářet přirozené romantické napětí — bez her, bez nátlaku, bez scénáře.</p>
+  </div>
+
+  <p>Napětí není nepříjemné ticho. Je to vědomá přítomnost, záměrné pauzy a signály, které říkají: "Jsem tady a všímám si tě." Bez napětí je rande přátelský rozhovor — ne setkání s přitažlivostí.</p>
+
+  <div class="insight">
+    <p>„Napětí se nebuduje tím, co říkáš. Buduje se tím, jak se díváš, jak odpovídáš a jak moc dovolíš tichu vydržet."</p>
+  </div>
+
+  <h3>Přímý oční kontakt v klíčových momentech</h3>
+  <p>Když řekne něco osobního nebo důležitého — nezlom pohled. Přímý, přítomný oční kontakt v tichu po její větě říká více než jakákoli odpověď. Netlumočí zájem slovem, ale přítomností.</p>
+
+  <div class="frame-box">
+    <div class="frame-label">Technika · Pomalé tempo</div>
+    <h4>Záměrně pomalá odpověď</h4>
+    <p>Na citlivou nebo osobní otázku nebo výrok: místo okamžité odpovědi se jemně usměj, počkej 2–3 sekundy, pak odpověz. Tato pauza napětí zvyšuje — a signalizuje přítomnost, ne nervozitu.</p>
+  </div>
+
+  <h3>Testovací dotek při rande</h3>
+  <p>V pohybu: přirozené vedení (ruka na zádech při průchodu dveřmi) je přijatelný první dotek. Při sezení: jemný dotek předloktí při sdílení momentu. Klíč: krátký, přirozený, a pak zpět — ne zdlouhavý nebo náhodný. Reakce na dotek říká více než cokoli jiného.</p>
+
+  <h3>Humor a hravost</h3>
+  <p>Napětí nevyžaduje vážnost. Lehká hravost — přátelské škádlení, obrácení situace, absurdní pozorování — vytváří zájem a odlišuje tě od "přátelského pohovoru". Podmínka: humor na její účet musí být laskavý, ne urážlivý.</p>
+
+  <div class="situace-block">
+    <div class="situace-num">Příklad škádlení</div>
+    <h3>Kontextuální škádlení</h3>
+    <div class="context">Ona zmíní, že nikdy nejí zeleninu u italské jídlo.</div>
+    <div class="step">
+      <div class="step-n">→</div>
+      <div class="step-body">
+        <span class="step-say">Odpověď</span>
+        <span class="step-why">"Počkej — ani rajčata? To je technicky zelenina." / "Jasně, z šéfkuchaře by z tebe nebyl nadšenec." Pokračuj tématem — nepřechází to v útok, ale v hravé pokračování.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande</span>
+    <span>Modul 05 · Napětí a přitažlivost</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 6 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 06</div>
+    <h2>Po prvním rande</h2>
+    <p class="module-lead">Co napsat druhý den, jak se vyhnout nevyžádanému výslechu po rande — a jak zajistit druhé setkání.</p>
+  </div>
+
+  <p>Po prvním rande je nejčastější chyba buď ticho (strach, jak to vypadalo) nebo přehlcení (okamžité zprávy s komplimenty a analýzou). Obojí pokazí dynamiku. Existuje přesnější střed.</p>
+
+  <div class="insight">
+    <p>„Den po rande není hodnocení — je to přirozené pokračování. Zpráva, která to ví, zní jinak než zpráva plná 'jak se ti to líbilo'."</p>
+  </div>
+
+  <h3>Zpráva druhý den</h3>
+  <p>Napiš do 24 hodin po rande — ne okamžitě po odchodu (přehlcení), ne za tři dny (nejistota nebo lhostejnost). Jeden věcný odkaz na něco konkrétního ze setkání — bez přímého hodnocení rande nebo žádosti o zpětnou vazbu.</p>
+
+  <div class="message-thread">
+    <div class="thread-label">Zpráva po rande · Příklady</div>
+    <div class="message-bubble you">
+      <div class="who-tag">Příklad 1 · Konkrétní detail</div>
+      Tak jsem zkusil tu italskou restauraci, co jsi zmiňovala. Máš pravdu — zeleniny tam opravdu moc nebylo.
+    </div>
+    <div class="message-bubble you" style="margin-top: 8px;">
+      <div class="who-tag">Příklad 2 · Přímý zájem</div>
+      Bavilo mě tě potkat. Rád bych se viděl znovu — co tento týden?
+    </div>
+  </div>
+
+  <h3>Navrhnutí druhého rande</h3>
+  <p>Navrhni druhé setkání ve stejné nebo blízké zprávě — ne jako testovací zprávu "jak se měla" a pak čekání. Zájem vyjádřen konkrétně (návrh setkání) je sebevědomější než zájem vyjádřený komplimenty.</p>
+
+  <div class="numbered-list">
+    <li>Napiš do 24 hodin — z konkrétního momentu setkání</li>
+    <li>Nehodnoť rande přímo ("bylo to super") — odkaž na zážitek</li>
+    <li>Navrhni druhé setkání konkrétně, ne otázkou "chceš se znovu setkat?"</li>
+    <li>Pokud neodpoví — jednou zopakuj s jiným termínem, pak přestaň</li>
+    <li>Udržuj rytmus konverzace stejný jako před rande</li>
+  </div>
+
+  <h3>Signály, že zájem je</h3>
+  <ul class="check">
+    <li>Sama navrhne aktivitu nebo místo</li>
+    <li>Ptá se na tebe nebo na tvé plány</li>
+    <li>Odpovídá rychle nebo s rozvinutím</li>
+    <li>Zmiňuje rande jako pozitivní zážitek bez otázky</li>
+  </ul>
+
+  <div class="cta-box">
+    <div class="cta-eyebrow">Příští krok</div>
+    <div class="cta-title">Zájem se neudržuje čekáním.</div>
+    <p class="cta-body">Vezmi jeden modul z tohoto průvodce a použij ho dnes nebo zítra. Zpráva, návrh, první rande — konkrétní krok vždy vede dál. Čekání na "správný okamžik" nefunguje; jednat s lehkostí a jasností funguje vždy lépe.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Přejít od Zájmu k Rande</span>
+    <span>Modul 06 · Po prvním rande</span>
+  </div>
+</div>
+
+</body>
+</html>

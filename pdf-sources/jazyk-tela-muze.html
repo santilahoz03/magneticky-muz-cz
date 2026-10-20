@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jazyk Těla Muže</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+.cover {
+  background: linear-gradient(160deg, #2B1A14 0%, #17130E 55%, #3A1812 100%);
+}
+.cover-accent-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--accent);
+  z-index: 3;
+}
+.cover-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(166,58,42,0.05) 39px, rgba(166,58,42,0.05) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(166,58,42,0.05) 39px, rgba(166,58,42,0.05) 40px);
+  z-index: 0;
+}
+.module-header {
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--line);
+}
+.module-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.module-num::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+.module-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.module-header .module-lead {
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+}
+.technique-box {
+  background: var(--bg-alt);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin: 20px 0;
+  border-top: 3px solid var(--accent);
+}
+.technique-box .tech-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.technique-box h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.technique-box p {
+  font-size: 13.5px;
+  margin: 0;
+}
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 20px 0;
+}
+.do-col, .dont-col {
+  border-radius: 8px;
+  padding: 16px;
+}
+.do-col {
+  background: #EBF5EE;
+  border-top: 3px solid #2f7d4f;
+}
+.dont-col {
+  background: #A63A2A0D;
+  border-top: 3px solid var(--accent);
+}
+.do-col .col-label, .dont-col .col-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.do-col .col-label { color: #2f7d4f; }
+.dont-col .col-label { color: var(--accent); }
+.do-col ul, .dont-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.do-col li, .dont-col li {
+  font-size: 13px;
+  padding: 4px 0 4px 18px;
+  position: relative;
+  border-bottom: 1px dashed var(--line);
+  line-height: 1.5;
+}
+.do-col li:last-child, .dont-col li:last-child { border-bottom: none; }
+.do-col li::before { content: '✓'; position: absolute; left: 0; color: #2f7d4f; font-weight: 700; }
+.dont-col li::before { content: '✕'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="page cover" style="padding: 22mm 20mm 28mm; justify-content: space-between;">
+  <div class="cover-accent-bar"></div>
+  <div class="cover-pattern"></div>
+  <div style="position: relative; z-index: 2;">
+    <div class="brand" style="color: var(--accent); font-size: 10px; letter-spacing: 0.2em;">MAGNETICKÝ MUŽ · BONUSOVÝ PRŮVODCE</div>
+  </div>
+  <div style="position: relative; z-index: 2;">
+    <div style="background: var(--accent); color: white; display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 14px; border-radius: 99px; margin-bottom: 22px;">7 Modulů</div>
+    <h1 style="font-family: 'Playfair Display', Georgia, serif; font-size: 50px; font-weight: 700; line-height: 1.05; color: #FBF9F5; margin-bottom: 14px;">Jazyk Těla<br>Muže</h1>
+    <p class="subtitle">Jak číst signály zájmu, zaujímat prostor<br>a přitahovat beze slov.</p>
+    <div class="switches-row" style="margin-top: 32px;">
+      <span class="switch-pill">Modul 1 · Postoj a prostor</span>
+      <span class="switch-pill">Modul 2 · Oční kontakt</span>
+      <span class="switch-pill">Modul 3 · Hlas</span>
+      <span class="switch-pill">Modul 4 · Gesta</span>
+      <span class="switch-pill">Modul 5 · Vzdálenost a dotek</span>
+      <span class="switch-pill">Modul 6 · Signály zájmu</span>
+      <span class="switch-pill">Modul 7 · Soulad verbálního a neverbálního</span>
+    </div>
+    <div class="cover-footer" style="margin-top: 40px;">Bonusový průvodce k e-knize Magnetický Muž · Pouze pro vlastní použití</div>
+  </div>
+</div>
+
+<!-- ══ OBSAH ══ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Obsah</div>
+    <h2>7 modulů, které mění to, jak tě ženy vnímají — ještě předtím, než otevřeš ústa.</h2>
+    <p class="chapter-lead">Neverbální komunikace tvoří většinu prvního dojmu. Tento průvodce ti dá konkrétní techniky pro každou vrstvu.</p>
+  </div>
+
+  <div class="toc-grid">
+    <div class="toc-card">
+      <div class="toc-num-big">01</div>
+      <div class="toc-section-name">Postoj a prostor</div>
+      <div class="toc-sub">Jak zaujímat prostor bez agrese. Ramena, záda, chodidla.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">02</div>
+      <div class="toc-section-name">Oční kontakt</div>
+      <div class="toc-sub">Kdy se dívat, jak dlouho a jak přirozeně zlomit pohled.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">03</div>
+      <div class="toc-section-name">Hlas</div>
+      <div class="toc-sub">Tempo, tón, pauzy. Jak mluvit tak, aby chtěla poslouchat.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">04</div>
+      <div class="toc-section-name">Gesta</div>
+      <div class="toc-sub">Gesta, která zesilují zájem. Gesta, která ho sabotují.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">05</div>
+      <div class="toc-section-name">Vzdálenost a dotek</div>
+      <div class="toc-sub">Jak se přibližovat přirozeně. První bezpečný dotek.</div>
+    </div>
+    <div class="toc-card">
+      <div class="toc-num-big">06</div>
+      <div class="toc-section-name">Čtení signálů</div>
+      <div class="toc-sub">Konkrétní signály zájmu a nezájmu u ženy.</div>
+    </div>
+  </div>
+  <div class="toc-card" style="border-top: 3px solid var(--accent); background: var(--bg-alt); border-radius: 8px; padding: 16px 18px; margin-top: 0;">
+    <div class="toc-num-big">07</div>
+    <div class="toc-section-name">Soulad verbálního a neverbálního</div>
+    <div class="toc-sub">Proč i správná slova selžou, pokud tělo říká opak. Jak sladit obojí.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže · Průvodce</span>
+    <span>Obsah</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 1 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 01</div>
+    <h2>Postoj a prostor</h2>
+    <p class="module-lead">Jak zaujímat prostor bez agrese — a co tvoje chodidla říkají za tebe.</p>
+  </div>
+
+  <p>Než řekneš první slovo, tvůj postoj už odvysílal tři zprávy: jsi sebevědomý nebo nervózní, zaujatý nebo lhostejný, dostupný nebo uzavřený. Ženy tohle čtou automaticky — bez vědomého úsilí.</p>
+
+  <div class="insight">
+    <p>„Postoj není o tom stát jako voják. Je o tom nechat tělo zaujímat prostor, který mu patří — bez omluvy."</p>
+  </div>
+
+  <h3>Základní postoj</h3>
+  <p>Chodidla na šíři ramen nebo o kousek dál. Váha rovnoměrně rozložená — žádné přenášení z nohy na nohu (to čte jako nervozitu). Ramena uvolněná dolů a dozadu, ne zvednutá k uším. Brada rovnoběžně se zemí, ne skloněná dolů.</p>
+
+  <div class="technique-box">
+    <div class="tech-label">Technika · Přirozenost</div>
+    <h4>Zeď za zády</h4>
+    <p>Postav se zády ke zdi tak, aby se jí dotýkala záda, hýždě a paty. Toto je tvůj přirozený vzpřímený postoj. Zapamátuj si ten pocit a zkus ho reproducovat bez zdi.</p>
+  </div>
+
+  <h3>Směr chodidel</h3>
+  <p>Chodidla ukazují skutečný zájem lépe než slova. Pokud stojíš a mluvíš, ale chodidla míří k východu, tvůj mozek chce pryč — a ona to ví. Při rozhovoru, který chceš rozvíjet, nech alespoň jedno chodidlo nasměrované k ní.</p>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <div class="col-label">Dělej</div>
+      <ul>
+        <li>Chodidla na šíři ramen, stabilní základ</li>
+        <li>Nasměruj tělo k osobě, se kterou mluvíš</li>
+        <li>Uvolněná ramena, ne "vojenská" poloha</li>
+        <li>Zůstaň na místě při rozhovoru</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <div class="col-label">Nedělej</div>
+      <ul>
+        <li>Přenášení váhy z nohy na nohu</li>
+        <li>Zkřížené kotníky (signál uzavřenosti)</li>
+        <li>Chodidla miřící pryč při rozhovoru</li>
+        <li>Shrbená záda nebo skloněná hlava</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Zaujímání prostoru vsedě</h3>
+  <p>V kavárně nebo restauraci: nesedej sbalený do rohu. Jedno předloktí na stole, lehce otevřená poloha. Noh nesevírej k sobě — přirozená šíře sedí lépe než stisklá kolena.</p>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 01 · Postoj a prostor</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 2 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 02</div>
+    <h2>Oční kontakt</h2>
+    <p class="module-lead">Kdy se dívat, jak dlouho vydržet a jak přirozeně zlomit pohled — bez toho, aby to bylo divné.</p>
+  </div>
+
+  <p>Oční kontakt je nejrychlejší způsob, jak vybudovat pocit spojení — nebo ho zničit. Příliš málo: vypadáš nejistě nebo nezainteresovaně. Příliš mnoho: děsivý, příliš intenzivní.</p>
+
+  <div class="insight">
+    <p>„Správný oční kontakt není upřený pohled. Je to přirozená přítomnost — vědomí, že tam jsi a že ji vidíš."</p>
+  </div>
+
+  <h3>Zlaté pravidlo: 70 / 30</h3>
+  <p>Při rozhovoru udržuj oční kontakt přibližně 70 % doby, kdy ona mluví, a asi 50 % doby, kdy mluvíš ty. Přirozené přerušení pohledu (dolů nebo do strany, ne nahoru) je normální a nutné. Pohled stále dolů čte jako nízká sebedůvěra — pohled do strany je přirozenější.</p>
+
+  <div class="technique-box">
+    <div class="tech-label">Technika · Trojúhelník</div>
+    <h4>Trojúhelník pohledu</h4>
+    <p>Pohybuj pohledem v trojúhelníku: levé oko → pravé oko → ústa. Vrať se nahoře. Tento přirozený pohyb vypadá zaangažovaně a nikdy nestrašidelně. Pohled fixovaný na jedno oko bez pohybu naopak působí nepřirozeně.</p>
+  </div>
+
+  <h3>Oční kontakt na dálku — před prvním oslovením</h3>
+  <p>Pokud jste v jedné místnosti a ještě jste nemluvili: krátký přímý pohled, přirozený úsměv (ne upnutý), pak odvrátit pohled. Pokud se pohled zopakuje z její strany — zájem je. Nenásleduj pohledem každý její pohyb; jedno až dvě setkání pohledů stačí jako signál.</p>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <div class="col-label">Dělej</div>
+      <ul>
+        <li>Pohyb v trojúhelníku (oči–ústa)</li>
+        <li>Přirozeně přeruš pohled do strany</li>
+        <li>Udržuj kontakt, když ona mluví</li>
+        <li>Pomalé mrkání (uvolněnost)</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <div class="col-label">Nedělej</div>
+      <ul>
+        <li>Upřený pohled bez pohybu</li>
+        <li>Vyhýbání se pohledu (signál strachu)</li>
+        <li>Pohled nahoru při přerušení (nerozhodnost)</li>
+        <li>Sledovat místnost, když mluví</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Pohled s úsměvem vs. vážný pohled</h3>
+  <p>Vážný, přímý oční kontakt bez úsměvu signalizuje intenzitu a sebejistotu — funguje v momentech, kdy chceš naznačit přitažlivost. Oční kontakt s přirozeným úsměvem je teplý a otevírá konverzaci. Oba mají své místo; neplete se jedno s druhým.</p>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 02 · Oční kontakt</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 3 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 03</div>
+    <h2>Hlas jako nástroj přitažlivosti</h2>
+    <p class="module-lead">Tempo, tón, pauzy. Jak mluvit tak, aby chtěla poslouchat.</p>
+  </div>
+
+  <p>Obsah slov je jen část zprávy. To, JAK mluvíš — rychlost, výška, hlasitost, pauzy — sděluje sebevědomí, zájem a emocionální stav. Rychlá, ztišená nebo monotónní řeč ruší i jinak dobrý obsah.</p>
+
+  <div class="insight">
+    <p>„Hlas je nástroj. Jako každý nástroj se dá ladit. Nejde o umělost — jde o to přestat mluvenímu bránit nervozitou."</p>
+  </div>
+
+  <h3>Rychlost řeči</h3>
+  <p>Nervózní lidé mluví rychle — přebíhají věty, nenechávají prostor pro odpověď, bojí se ticha. Sebevědomý člověk mluví pomalejším, rovnoměrným tempem. Záměrné zpomalení na začátku rozhovoru nastaví tón celé interakce.</p>
+
+  <div class="technique-box">
+    <div class="tech-label">Technika · Pauza</div>
+    <h4>Záměrná pauza před odpovědí</h4>
+    <p>Když ona dokončí větu, počkej 1–2 sekundy před odpovědí. Nevyplňuj ticho slůvky "ehm", "no", "takže". Krátká pauza signalizuje, že přemýšlíš — ne že se bojíš. Je to jeden z nejsnadnějších způsobů, jak okamžitě působit sebevědoměji.</p>
+  </div>
+
+  <h3>Výška a rezonance</h3>
+  <p>Mluvíš z hrdla nebo z hrudi? Hluboký, rezonující hlas přirozeně působí přitažlivěji. To neznamená uměle "snižovat" hlas — znamená to mluvit uvolněně, s dechem z bránice, ne stažit hrdlo při nervozitě. Vyzkoušej: polož ruku na hrudní kost a mluv. Pokud cítíš vibraci — mluvíš z hrudi.</p>
+
+  <h3>Intonace</h3>
+  <p>Věty, které na konci stoupají (jako otázka), zní nejistě — i když jsou tvrzením. Věty, které klesají nebo zůstávají rovné, znějí jistě. Zkontroluj, zda nehybně nezvedáš intonaci na konci každé věty jako neverbální žádost o schválení.</p>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <div class="col-label">Dělej</div>
+      <ul>
+        <li>Pomalejší, rovnoměrné tempo</li>
+        <li>Záměrné pauzy místo "ehm"</li>
+        <li>Intonace klesá na konci tvrzení</li>
+        <li>Mluv z bránice, ne ze stažena hrdla</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <div class="col-label">Nedělej</div>
+      <ul>
+        <li>Rychlé přebíhání vět (nervozita)</li>
+        <li>Stoupající intonace u tvrzení</li>
+        <li>Ztlumení hlasu na konci vět</li>
+        <li>Vyplňování ticha zbytečnými zvuky</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 03 · Hlas</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 4 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 04</div>
+    <h2>Gesta</h2>
+    <p class="module-lead">Která gesta zesilují zájem — a která ho nepozorovaně sabotují.</p>
+  </div>
+
+  <p>Gesta buď podporují a zdůrazňují to, co říkáš, nebo jsou v kontrastu s tvou slovní sebejistotou. Zakrytí těla, sebedotýkání nebo neklidné pohyby jsou nevědomé úniky nervozity — a čtou se jako taková.</p>
+
+  <div class="insight">
+    <p>„Nejde o to naučit se gesta. Jde o to přestat blokovat gesta, která by přirozeně přišla, kdybys se nebál."</p>
+  </div>
+
+  <h3>Otevřené vs. uzavřené gesta</h3>
+  <p>Otevřená gesta — dlaně viditelné, ruce od těla, pohyby směrem ven — jsou čtena jako upřímná a sebevědomá. Uzavřená gesta — ruce před trupem, zkřížené paže, zastrčené ruce v kapsách — signalizují obranu nebo nejistotu.</p>
+
+  <div class="technique-box">
+    <div class="tech-label">Technika · Ruce</div>
+    <h4>Ruce v neutrální poloze</h4>
+    <p>Pokud nevíš, co s rukama: nech je volně po bocích nebo jemně před sebou s otevřenými dlaněmi. Kapsy jsou přijatelné, ale ne obě ruce najednou a ne hluboko (zavřená poloha). Ruce zastrčené pod paží jsou nejhorší pozice.</p>
+  </div>
+
+  <h3>Sebedotýkání — signál stresu</h3>
+  <p>Dotýkání se vlastního obličeje, krku, vlasů nebo uší při rozhovoru je nevědomá nervózní reakce. Pár dotyků je normálních; opakované sebedotýkání čte jako diskomfort nebo neupřímnost. Vědom si toho je první krok k jeho snížení.</p>
+
+  <h3>Přikyvování</h3>
+  <p>Přikyvování při naslouchání je přirozené a pozitivní — signalizuje zájem. Přehnaně rychlé a časté přikyvování (jako souhlas s vším) čte jako snaha zavděčit se. Pomalejší, záměrné přikyvování signalizuje, že zpracováváš a souhlasíš — ne že spěcháš ukázat souhlas.</p>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <div class="col-label">Dělej</div>
+      <ul>
+        <li>Otevřené dlaně, ruce viditelné</li>
+        <li>Gesta v souladu s tím, co říkáš</li>
+        <li>Pomalé, záměrné přikyvování</li>
+        <li>Pohyby z loktu nebo ramen</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <div class="col-label">Nedělej</div>
+      <ul>
+        <li>Opakované dotýkání vlastního obličeje</li>
+        <li>Zkřížené paže jako obrana</li>
+        <li>Nervózní klepání nebo mnutí rukou</li>
+        <li>Gesta, která blokují tvůj trup</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 04 · Gesta</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 5 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 05</div>
+    <h2>Vzdálenost a dotek</h2>
+    <p class="module-lead">Jak se přibližovat přirozeně — a jak udělat první bezpečný dotek bez trapnosti.</p>
+  </div>
+
+  <p>Vzdálenost je dynamická veličina. Správně řízená, vytváří napětí a zájem. Porušená příliš rychle, ruší pohodlí a přitažlivost. Klíč je postupnost a reakce — ne fixní pravidla.</p>
+
+  <div class="insight">
+    <p>„Přibližování není o přestoupení hranice. Je o pozvání do prostoru — tak, aby ona mohla říct ano nebo ne vlastním pohybem."</p>
+  </div>
+
+  <h3>Zóny vzdálenosti</h3>
+  <p><strong>Sociální zóna (1,2–3,5 m):</strong> formální interakce, neznámí lidé. <strong>Osobní zóna (0,5–1,2 m):</strong> přátelé, známí — sem vstupuješ při rozhovoru, který má zájem. <strong>Intimní zóna (do 50 cm):</strong> romantický zájem nebo blízký fyzický kontakt. Přechody musí být přirozené, ne náhlé.</p>
+
+  <div class="technique-box">
+    <div class="tech-label">Technika · Testovací přiblížení</div>
+    <h4>Přiblížení a zpět</h4>
+    <p>Přiblíž se o krok (přirozené — třeba ukázat něco na telefonu nebo lépe slyšet v hluku), pak se vrať. Pokud ona sleduje pohyb nebo se neodkloní — zájem je. Pokud se odtahuje — akceptuj to beze změny chování. Reakce řídí, ne plán.</p>
+  </div>
+
+  <h3>První dotek</h3>
+  <p>Nejméně riziková místa pro první dotek: ruka nebo předloktí, záda (horní část) v pohyblivé situaci (navigace v davu), rameno při sdílení momentu. Vyhni se prvnímu doteku na obličeji, vlasech nebo příliš nízkých místech — i při dobrých signálech zájmu.</p>
+
+  <p>Dotek má být přirozený — při sdílení vtipné věci, při vedení přes rušné místo, při potvrzení toho, co říkáš. Ne "náhodný" nebo bez kontextu.</p>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <div class="col-label">Dělej</div>
+      <ul>
+        <li>Postupné snižování vzdálenosti</li>
+        <li>Přiblížení s přirozeným důvodem</li>
+        <li>Čti reakci těla, ne slov</li>
+        <li>První dotek krátký a v bezpečné zóně</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <div class="col-label">Nedělej</div>
+      <ul>
+        <li>Náhlé vstoupení do intimní zóny</li>
+        <li>Dotek bez přirozeného kontextu</li>
+        <li>Ignorování odmítavého pohybu těla</li>
+        <li>Vyhýbání se jakkoli (čte jako nezájem)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 05 · Vzdálenost a dotek</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 6 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 06</div>
+    <h2>Čtení signálů zájmu</h2>
+    <p class="module-lead">Konkrétní signály zájmu a nezájmu u ženy — jak je číst správně a nenechávat se zmást povrchním chováním.</p>
+  </div>
+
+  <p>Čtení signálů je dovednost — ne intuice. Intuice je jen načtená zkušenost. Pokud nevíš, co hledat, přehlédneš zelená světla i červená. Tato část ti dává konkrétní seznam.</p>
+
+  <div class="insight">
+    <p>„Hledej clustery signálů, ne jeden izolovaný. Jedna věc může být náhoda. Tři věci ve stejnou chvíli jsou zájem."</p>
+  </div>
+
+  <h3>Signály zájmu — co sledovat</h3>
+  <ul class="check">
+    <li><strong>Tělo nasměrované k tobě</strong> — chodidla, trup, ramena míří k tobě, ne k východu</li>
+    <li><strong>Prodloužený oční kontakt</strong> — dívá se déle, než je nutné pro konverzaci</li>
+    <li><strong>Sebezachraňovací dotyky</strong> — dotýká se vlasů, krku, náušnic při rozhovoru s tebou</li>
+    <li><strong>Smích na věci, které nejsou objektově vtipné</strong></li>
+    <li><strong>Zrcadlení pohybů</strong> — kopíruje tvůj postoj nebo gesta krátce po tobě</li>
+    <li><strong>Zkracuje vzdálenost</strong> — přibližuje se při rozhovoru, ne pryč</li>
+    <li><strong>Ptá se na tebe osobně</strong> — otázky na tebe, ne jen kontextové odpovědi</li>
+    <li><strong>Zdlouhavé loučení</strong> — konverzace, která mohla skončit, ale nekončí</li>
+  </ul>
+
+  <h3>Signály nezájmu — co respektovat</h3>
+  <ul class="check" style="--success: #A63A2A;">
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Tělo odvrácené nebo sbalené (zkřížené ruce)</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Krátké, uzavřené odpovědi bez rozvíjení</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Kontroluje telefon při rozhovoru s tebou</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Oddaluje se při přiblížení</li>
+    <li style="padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent); font-weight: 700;">✕</span>Aktivně hledá únikovou cestu nebo třetí osobu do rozhovoru</li>
+  </ul>
+
+  <div class="warning-box">
+    <div class="warning-label">Pozor na falešně pozitivní signály</div>
+    <p>Zdvořilý úsměv, přirozená oční komunikace při rozhovoru a krátký dotek při loučení jsou sociální normy — ne signály zájmu. Hledej věci <strong>nad rámec</strong> toho, co by udělala s každým.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 06 · Signály zájmu</span>
+  </div>
+</div>
+
+<!-- ══ MODUL 7 ══ -->
+<div class="page">
+  <div class="module-header">
+    <div class="module-num">Modul 07</div>
+    <h2>Soulad verbálního a neverbálního</h2>
+    <p class="module-lead">Proč i správná slova selžou, pokud tělo říká opak — a jak sladit obojí do konzistentního signálu.</p>
+  </div>
+
+  <p>Nesoulad je největší sabotáž. Pokud říkáš sebevědomou věc, ale tón hlasu se třese a oči utíkají dolů — žena věří tělu, ne slovům. Tělo vždy mluví hlasitěji.</p>
+
+  <div class="insight">
+    <p>„Přitažlivost nevytváří to, co říkáš. Vytváří ji konzistence — to, že tvé tělo, hlas a slova říkají tutéž věc."</p>
+  </div>
+
+  <h3>Tři nejčastější nesoulady</h3>
+
+  <div class="situace-block">
+    <div class="situace-num">Nesoulad 01</div>
+    <h3>Asertivní slova + uzavřená poloha těla</h3>
+    <div class="context">„Víš, co chci?" — řečeno s překříženými pažemi, pohled dolů, váha na jedné noze.</div>
+    <p>Slova dominantní, tělo submisivní. Výsledek: zpráva se ruší. Řešení: před asertivní větou narovnej záda, otevři polohu, zlehka ustali kontakt pohledem.</p>
+  </div>
+
+  <div class="situace-block">
+    <div class="situace-num">Nesoulad 02</div>
+    <h3>Vtipná věc + kamenný obličej</h3>
+    <div class="context">Říkáš vtip, ale tváříš se vážně nebo ustrašeně — čekáš na reakci.</div>
+    <p>Sebevědomý humor se říká s mírným úsměvem nebo neutrálním výrazem — ne s výrazem "doufám, že je to vtipné". Uvolnění svalů obličeje a přirozený postoj jsou klíčem.</p>
+  </div>
+
+  <div class="situace-block">
+    <div class="situace-num">Nesoulad 03</div>
+    <h3>Klidná konverzace + napjaté tělo</h3>
+    <div class="context">Bavíte se o ničem — ale ty stojíš ztuhlý, ruce pevně u boků nebo v kapsách.</div>
+    <p>Uvolni záměrně ramena dolů, přenášej váhu jemně při pohybu, mluv o půl tónu pomaleji. Tělo říká "Je mi s tebou dobře" nebo "Chci být co nejdřív pryč" — kontroluj, co říká.</p>
+  </div>
+
+  <h3>Praktické cvičení: Soulad za 10 sekund</h3>
+  <p>Před vstupem do konverzace nebo situace: 3 hluboké nádechy, ramena dolů, přirozená poloha nohou, pohled rovně. Ne jako výkon — jako resetování do neutrálu. Tělo v neutrálu přirozeně dovoluje soulad se slovy.</p>
+
+  <div class="cta-box">
+    <div class="cta-eyebrow">Příští krok</div>
+    <div class="cta-title">Soulad se buduje praxí, ne teorií.</div>
+    <p class="cta-body">Vezmi jeden modul z tohoto průvodce a zaměř se na něj jeden celý den. Postoj. Oční kontakt. Hlas. Jeden najednou — vědomost se mění v dovednost opakoványn vědomím, ne přečtením.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Jazyk Těla Muže</span>
+    <span>Modul 07 · Soulad komunikace</span>
+  </div>
+</div>
+
+</body>
+</html>
