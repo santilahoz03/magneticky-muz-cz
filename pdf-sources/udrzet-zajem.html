@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Udrzet Zajem</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+.cover { background: linear-gradient(160deg, #2B1A14 0%, #17130E 55%, #3A1812 100%); }
+.faze-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 2px solid var(--line);
+}
+.faze-num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px; font-weight: 700; flex-shrink: 0;
+}
+.faze-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--ink); }
+.faze-sub { font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.signal-box {
+  border-left: 4px solid var(--accent); padding: 14px 18px;
+  background: var(--bg-alt); border-radius: 0 8px 8px 0; margin: 16px 0;
+}
+.signal-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.col-box { background: var(--bg-alt); border-radius: 8px; padding: 14px 16px; }
+.col-box h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.col-box.green h5 { color: #166534; }
+.col-box.red h5 { color: #b91c1c; }
+.summary-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 10px; margin: 20px 0;
+}
+.summary-card {
+  background: var(--bg-alt); border-radius: 8px; padding: 12px;
+  text-align: center; border-top: 3px solid var(--accent);
+}
+.summary-card .num { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--accent); }
+.summary-card .card-title { font-size: 11px; font-weight: 700; margin: 4px 0; }
+.summary-card .card-time { font-size: 10px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover page">
+  <div class="cover-inner">
+    <div class="cover-label">Magnetický Muž · OTO 3</div>
+    <h1 class="cover-title">Udržet Zájem</h1>
+    <div class="cover-divider"></div>
+    <p class="cover-sub">Kompletní Mapa<br>4 Fáze Eskalace</p>
+    <div class="cover-meta">
+      <span>Pouze pro zákazníky</span>
+      <span>·</span>
+      <span>Nesdílejte</span>
+    </div>
+  </div>
+</div>
+
+<!-- ÚVOD -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-label">Úvod</div>
+    <h2>Proč 8 z 10 mužů ztratí zájem před prvním rande</h2>
+  </div>
+  <p>Přitáhnout ženu je jenom začátek. Skutečná hra začíná sekundu poté, co jsi vzbudil zájem — a trvá až do chvíle, kdy je jasné, kam to jde.</p>
+  <p>Problém není v přitažlivosti. Je v tom, co přijde po ní.</p>
+  <div class="insight">
+    <strong>Každá interakce prochází přesnými 4 fázemi.</strong> Pokud nevíš, ve které fázi jsi, nevíš co dělat. A pokud nevíš co dělat, uděláš chybu — i když budeš mít ty nejlepší signály.
+  </div>
+  <p>Tato příručka ti dává přesnou mapu: co se děje v každé fázi, jak poznat, kdy přejít do další, a přesné kroky, které zájem udržují, prohlubují a vedou tam, kam chceš.</p>
+  <h3>Čtyři fáze</h3>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="num">1</div>
+      <div class="card-title">Jiskra</div>
+      <div class="card-time">0–48 hodin</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">2</div>
+      <div class="card-title">Oheň</div>
+      <div class="card-time">1–2 týdny</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">3</div>
+      <div class="card-title">Plamen</div>
+      <div class="card-time">3–8 týdnů</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">4</div>
+      <div class="card-title">Rozhodnutí</div>
+      <div class="card-time">8+ týdnů</div>
+    </div>
+  </div>
+  <p>Každá fáze má jiná pravidla. Co funguje v 1. fázi zabíjí zájem ve 3. fázi. Co je správné ve 4. fázi je předčasné ve 2. Přesná mapa ti řekne, kde jsi a co dělat.</p>
+</div>
+
+<!-- FÁZE 1 -->
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">1</div>
+    <div>
+      <div class="faze-sub">Fáze 1 · 0–48 hodin</div>
+      <div class="faze-title">Jiskra</div>
+    </div>
+  </div>
+  <p>Právě proběhlo první setkání. Možná v baru, na párty, přes aplikaci nebo přes přátele. Něco tam bylo — ona to cítila a ty taky.</p>
+  <p>Těchto 48 hodin rozhoduje, jestli ten pocit zůstane nebo zmizí. A zmizí snadněji, než si myslíš — ne proto, že by zájem nebyl, ale proto, že nevíš jak ho udržet.</p>
+  <h3>Co se děje v její hlavě</h3>
+  <p>Po prvním setkání s někým zajímavým mozek spustí "vyhodnocovací fázi." Ona si přehrává vzpomínky, hledá signály, zda byl zájem opravdový. Ptá se sama sebe: byl to jen dobrý večer, nebo je tam něco víc?</p>
+  <p>V těchto 48 hodinách čeká na potvrzení. Ne na výslovné prohlášení — ale na to, jestli signály, které cítila naživo, potvrdíš i v komunikaci po setkání.</p>
+  <div class="signal-box">
+    <div class="signal-label">Co hledá</div>
+    <ul>
+      <li>Zájem bez zoufalství — napsal jsi, ale ne hned a ne příliš</li>
+      <li>Sebejistotu v tónu — nejsi nervózní, nepotřebuješ schválení</li>
+      <li>Konkrétnost — nevíš si jen "ahoj, jak se máš", ale pokračuješ v konverzaci</li>
+    </ul>
+  </div>
+</div>
+
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">1</div>
+    <div>
+      <div class="faze-sub">Fáze 1 — pokračování</div>
+      <div class="faze-title">Co dělat a co nedělat</div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="col-box green">
+      <h5>✓ Co dělat</h5>
+      <ul>
+        <li>Napiš do 24 hodin (ne hned po setkání)</li>
+        <li>Odkaz na konkrétní moment ze setkání</li>
+        <li>Krátká, sebejistá zpráva — ne esej</li>
+        <li>Navrhni konkrétní aktivitu nebo téma</li>
+        <li>Tempo: 1–2 zprávy denně max</li>
+      </ul>
+    </div>
+    <div class="col-box red">
+      <h5>✗ Co nedělat</h5>
+      <ul>
+        <li>Napsat hned po setkání (vypadáš zoufale)</li>
+        <li>"Ahoj, jak se máš?" — bez kontextu</li>
+        <li>Poslat více zpráv bez odpovědi</li>
+        <li>Bombardovat komplimenty</li>
+        <li>Psát o budoucnosti hned</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Vzorová první zpráva</h3>
+  <div class="dialog-box">
+    <div class="dialog-who">Ty</div>
+    <div class="dialog-text">„Ten [konkrétní moment ze setkání] mě pobavil. Musíme to zopakovat — ale příště na [konkrétní aktivita]."</div>
+  </div>
+  <div class="signal-box">
+    <div class="signal-label">Signál pro přechod do Fáze 2</div>
+    <p><strong>Ona odpovídá pozitivně + sama expanduje</strong> — přidá informaci, položí otázku, nebo navrhne možnost setkání. To je sign, že zájem je živý a je čas přejít do fáze budování.</p>
+  </div>
+</div>
+
+<!-- FÁZE 2 -->
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">2</div>
+    <div>
+      <div class="faze-sub">Fáze 2 · 1–2 týdny</div>
+      <div class="faze-title">Oheň</div>
+    </div>
+  </div>
+  <p>Jiskra hoří. Teď ji musíš přeměnit v oheň — stálý, silný zájem, který přetrvá déle než pár dní. Tohle je fáze, kde se buduje skutečná přitažlivost.</p>
+  <h3>Co buduje napětí</h3>
+  <div class="two-col">
+    <div class="col-box green">
+      <h5>Buduje napětí</h5>
+      <ul>
+        <li>Lehká nedostupnost — ne vždy on-line ihned</li>
+        <li>Humor a hravost, ne jen vážné téma</li>
+        <li>Konverzace, která roste do hloubky</li>
+        <li>Zmínka o svých aktivitách (ne reporting)</li>
+        <li>Ukončit konverzaci na vrcholu, ne když vyhasne</li>
+      </ul>
+    </div>
+    <div class="col-box red">
+      <h5>Zabíjí napětí</h5>
+      <ul>
+        <li>Dostupnost 24/7 — vypadáš bez života</li>
+        <li>Vyptávání se na každý detail</li>
+        <li>Příliš brzy příliš vážné téma</li>
+        <li>Souhlas se vším, co říká</li>
+        <li>Konverzace, která nikam nevede</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Tempo setkávání</h3>
+  <div class="insight">
+    <strong>Pravidlo Fáze 2:</strong> Jedno setkání za první 2 týdny. Lépe méně než víc. Kvalita > kvantita. První rande by mělo zanechat pocit "chci víc" — ne pocit "jsme skoro pár."
+  </div>
+  <h3>Jak navrhnout první rande</h3>
+  <div class="dialog-box">
+    <div class="dialog-who">Ty</div>
+    <div class="dialog-text">„Mám dobrý tip na [konkrétní aktivitu] — jdi se mnou v [den], jsem zvědavý, co si o tom myslíš."</div>
+  </div>
+  <p><strong>Proč tahle formulace funguje:</strong> Navrhujete, ne prosíte. Máte konkrétní plán. Dáváte jí roli ("jsem zvědavý co si myslíš") — ne jen ji prosíte o přítomnost.</p>
+</div>
+
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">2</div>
+    <div>
+      <div class="faze-sub">Fáze 2 — pokračování</div>
+      <div class="faze-title">Fyzický kontakt a přechod</div>
+    </div>
+  </div>
+  <h3>Fyzický kontakt v této fázi</h3>
+  <p>Na prvním rande je fyzický kontakt přirozený, ne vynucený. Začíná malými věcmi a roste přirozeně s průběhem večera.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Přivítání</strong> — Přirozený fyzický kontakt hned na začátku odstraňuje awkward tension. Malé gesto při setkání (podání ruky, objití) nastaví tón.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Během večera</strong> — Progresivní escalation: lehký dotek při rozhovoru, ukázat jí cestu (ruka na záda), sdílet něco na telefonu (přiblížit se).
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Konec večera</strong> — Test: pokud se odtahuje, znáš odpověď. Pokud nereaguje negativně, zájem je tam. Konec rande: vždy ty ukončuješ.
+      </div>
+    </div>
+  </div>
+  <div class="signal-box">
+    <div class="signal-label">Signál pro přechod do Fáze 3</div>
+    <p><strong>Ona sama iniciuje druhé setkání, nebo jasně naznačí, že ho chce.</strong> Ne ty se ptáš "a co teď?" — ale ona projeví zájem o pokračování vlastní iniciativou.</p>
+  </div>
+</div>
+
+<!-- FÁZE 3 -->
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">3</div>
+    <div>
+      <div class="faze-sub">Fáze 3 · 3–8 týdnů</div>
+      <div class="faze-title">Stabilní plamen</div>
+    </div>
+  </div>
+  <p>Věci se stabilizovaly. Scházíte se pravidelně. Konverzace plynou lehce. Ona odpovídá rychle, iniciuje kontakt. Toto je nejnebezpečnější fáze — ne proto, že by hrozilo odmítnutí, ale proto, že přitažlivost začíná blednout.</p>
+  <div class="insight">
+    <strong>Paradox Fáze 3:</strong> Čím více se zájem stabilizuje, tím více musíš pracovat na napětí. Komfort je dobrý. Nuda není. Tvůj úkol: udržet zájem živý, aniž by ses zdál nestabilní.
+  </div>
+  <h3>Pattern interrupt — proč a jak</h3>
+  <p>Pattern interrupt je záměrná změna vzorce, která přeruší rutinu a znovu aktivuje zájem. Funguje proto, že mozek přestane ignorovat předvídatelné a reaguje na nečekané.</p>
+  <div class="two-col">
+    <div class="col-box green">
+      <h5>Příklady pattern interrupt</h5>
+      <ul>
+        <li>Navrhnout neobvyklou aktivitu</li>
+        <li>Vynechat 1 den komunikace</li>
+        <li>Napsat zprávu v neobvyklou dobu</li>
+        <li>Říct ne na plán, který jsi dřív přijal</li>
+        <li>Poslat něco vizuálního bez kontextu</li>
+      </ul>
+    </div>
+    <div class="col-box red">
+      <h5>Co není pattern interrupt</h5>
+      <ul>
+        <li>Ignorovat ji 3 dny (to je drama)</li>
+        <li>Být náhle chladný bez důvodu</li>
+        <li>Dramaticky "mizet" a vracet se</li>
+        <li>Vytvářet zbytečné konflikty</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">3</div>
+    <div>
+      <div class="faze-sub">Fáze 3 — pokračování</div>
+      <div class="faze-title">Eskalace a záchrana</div>
+    </div>
+  </div>
+  <h3>Eskalace: od setkávání k větší blízkosti</h3>
+  <p>V této fázi se přechází od "randění" k hlubší blízkosti. Fyzická, emocionální a praktická. Každá dimenze se prohlubuje jinak.</p>
+  <div class="signal-box">
+    <div class="signal-label">Tři dimenze eskalace</div>
+    <ul>
+      <li><strong>Fyzická:</strong> Větší fyzická blízkost, intimita, trávení více času ve stejném prostoru</li>
+      <li><strong>Emocionální:</strong> Hlubší rozhovory, sdílení zranitelnosti, poznávání skutečné osobnosti</li>
+      <li><strong>Praktická:</strong> Plánování společných věcí dopředu, přirozené propojení do každodenního života</li>
+    </ul>
+  </div>
+  <h3>Pokud zájem začíná opadat</h3>
+  <p>Signály: odpovídá pomaleji, méně iniciuje, vyhýbavé odpovědi. Toto je přirozené a opravitelné — pokud zareaguješ správně.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body"><strong>Nekonfrontuj zájem přímo</strong> — "Proč mi nepíšeš?" je vždy špatně.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body"><strong>Pattern interrupt</strong> — Změň vzorec. Navrhni něco nového. Buď méně dostupný.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body"><strong>Dej jí prostor reagovat</strong> — Po pattern interrupt čekej. Pokud nereaguje, máš odpověď.</div>
+    </div>
+  </div>
+  <h3>Kdy mluvit o tom "co jsme"</h3>
+  <p>Nikdy v přímé formě "co jsme my?" — vždy organicky. Nejlepší moment: scházíte se pravidelně déle než 4 týdny, ona jasně projevuje zájem a iniciuje kontakt. Tehdy — přirozeně, v kontextu plánování — vyjasníš situaci.</p>
+  <div class="signal-box">
+    <div class="signal-label">Signál pro přechod do Fáze 4</div>
+    <p><strong>Jste pravidelně spolu, zájem je stabilní a vzájemný, a otázka "co jsme" visí přirozeně ve vzduchu.</strong> Obě strany cítí, že definice je potřeba.</p>
+  </div>
+</div>
+
+<!-- FÁZE 4 -->
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">4</div>
+    <div>
+      <div class="faze-sub">Fáze 4 · 8+ týdnů</div>
+      <div class="faze-title">Rozhodnutí</div>
+    </div>
+  </div>
+  <p>Tohle je fáze, kde se rozhoduje. Ne dramaticky, ne s ultimáty — ale přirozeně, s jasností. Cíl: víš, co chceš, a zjistíš, co chce ona.</p>
+  <h3>Jak mluvit o definici bez ztráty rámce</h3>
+  <div class="insight">
+    <strong>Zásada:</strong> Toto není konverzace, kde ty "prosíš" o vztah. Je to konverzace, kde ty sdělíš, co chceš — a zjistíš, jestli to dává smysl i pro ni.
+  </div>
+  <div class="dialog-box">
+    <div class="dialog-who">Formulace, která funguje</div>
+    <div class="dialog-text">„Baví mě čas s tebou a chci, abychom byli víc než kamarádi. Jak to vidíš ty?"</div>
+  </div>
+  <p><strong>Proč tohle funguje:</strong> Říkáš, co chceš (síla pozice). Neproklínáš ji za odpověď (respekt k sobě). Dáváš jí prostor reagovat upřímně (respekt k ní).</p>
+  <h3>Čtyři možné výsledky</h3>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">A</div>
+      <div class="step-body"><strong>Ano, chce to taky</strong> — Jasná situace. Respektuj to a následuj přirozenou dynamiku.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">B</div>
+      <div class="step-body"><strong>Potřebuje čas</strong> — Přijatelné. Dej jí čas (1–2 týdny), pak se vrať k tématu. Bez tlaku, ale s jasností.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">C</div>
+      <div class="step-body"><strong>Chce zůstat jen kamarádi</strong> — Přijmi to s noblesou. Rozhodnutí ukončit komunikaci je tvoje. Je respektovatelné.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">D</div>
+      <div class="step-body"><strong>Vyhýbavá odpověď</strong> — Toto je ne. Vyhýbavá odpověď není "možná" — je to měkké ne. Zachovej se jako v případě C.</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="faze-header">
+    <div class="faze-num">4</div>
+    <div>
+      <div class="faze-sub">Fáze 4 — pokračování</div>
+      <div class="faze-title">Konec s noblesou</div>
+    </div>
+  </div>
+  <h3>Jak ukončit, pokud to nefunguje</h3>
+  <p>Konec s noblesou není konec s dramatem. Není to výbuch emocí, není to výčitky, není to "dával jsem ti tolik a ty..." Je to jasné, klidné a sebevědomé rozloučení.</p>
+  <div class="dialog-box">
+    <div class="dialog-who">Formulace pro konec</div>
+    <div class="dialog-text">„Chápu. Já chci víc, takže dám nám oběma prostor. Přeji ti hodně dobrého."</div>
+  </div>
+  <p>Pak přestaneš iniciovat kontakt. Definitivně. Bez výjimek, bez "jen se chci ujistit, jsi v pořádku?"</p>
+  <div class="insight">
+    <strong>Proč je konec s noblesou důležitý:</strong> Ne proto, aby se vrátila (i když se to stává). Ale proto, že to říká víc o tobě než jakékoli gesto zájem. Muž, který odchází s respektem k sobě, je muž, za kterým se dívky ohlíží.
+  </div>
+</div>
+
+<!-- PŘEHLED -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-label">Přehled</div>
+    <h2>Mapa 4 fází — rychlý přehled</h2>
+  </div>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="num">1</div>
+      <div class="card-title">JISKRA</div>
+      <div class="card-time">0–48 hod</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">2</div>
+      <div class="card-title">OHEŇ</div>
+      <div class="card-time">1–2 týdny</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">3</div>
+      <div class="card-title">PLAMEN</div>
+      <div class="card-time">3–8 týdnů</div>
+    </div>
+    <div class="summary-card">
+      <div class="num">4</div>
+      <div class="card-title">ROZHODNUTÍ</div>
+      <div class="card-time">8+ týdnů</div>
+    </div>
+  </div>
+  <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:13px">
+    <thead>
+      <tr style="background:var(--bg-alt)">
+        <th style="padding:10px;text-align:left;border-bottom:2px solid var(--line)">Fáze</th>
+        <th style="padding:10px;text-align:left;border-bottom:2px solid var(--line)">Hlavní úkol</th>
+        <th style="padding:10px;text-align:left;border-bottom:2px solid var(--line)">Největší chyba</th>
+        <th style="padding:10px;text-align:left;border-bottom:2px solid var(--line)">Signál přechodu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--line)"><strong>1 · Jiskra</strong></td><td style="padding:10px;border-bottom:1px solid var(--line)">Potvrdit zájem</td><td style="padding:10px;border-bottom:1px solid var(--line)">Napsat hned nebo příliš mnoho</td><td style="padding:10px;border-bottom:1px solid var(--line)">Ona expanduje v odpovědi</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--line)"><strong>2 · Oheň</strong></td><td style="padding:10px;border-bottom:1px solid var(--line)">Budovat napětí</td><td style="padding:10px;border-bottom:1px solid var(--line)">Příliš dostupný, příliš rychlý</td><td style="padding:10px;border-bottom:1px solid var(--line)">Ona iniciuje druhé setkání</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--line)"><strong>3 · Plamen</strong></td><td style="padding:10px;border-bottom:1px solid var(--line)">Udržet zájem živý</td><td style="padding:10px;border-bottom:1px solid var(--line)">Rutina bez pattern interrupt</td><td style="padding:10px;border-bottom:1px solid var(--line)">Definice visí přirozeně</td></tr>
+      <tr><td style="padding:10px"><strong>4 · Rozhodnutí</strong></td><td style="padding:10px">Jasnost</td><td style="padding:10px">Čekat příliš dlouho nebo tlačit</td><td style="padding:10px">—</td></tr>
+    </tbody>
+  </table>
+  <div class="cta-box">
+    <p><strong>Příští krok:</strong> Vezmi aktuální situaci a urči, ve které fázi jsi. Pak aplikuj přesné kroky té fáze — ne obecné rady, ale kroky z tohoto průvodce.</p>
+  </div>
+</div>
+
+</body>
+</html>
